@@ -32,13 +32,15 @@ const IMG = {
   plansM: 'https://bautis.pl/wp-content/uploads/2024/03/building-plans-in-hand-1536x1024.jpg',
   details: 'https://bautis.pl/wp-content/uploads/2024/03/pointing-out-the-details-2048x1365.jpg',
   detailsM: 'https://bautis.pl/wp-content/uploads/2024/03/pointing-out-the-details-1536x1024.jpg',
-  // Zdjęcia poglądowe z Unsplash (licencja Unsplash, darmowe) — źródła w README
-  flat: 'assets/img/apartment-building.jpg',
-  room: 'assets/img/grey-room.jpg',
-  emptyRoom: 'assets/img/empty-room.jpg',
-  build: 'assets/img/house-construction.jpg',
-  house: 'assets/img/new-house.jpg',
-  site: 'assets/img/site-aerial.jpg',
+  // Neutralne zdjęcia przedmiotów z Unsplash (licencja Unsplash, darmowe) — źródła w README
+  flat: 'assets/img/rulers.jpg',
+  room: 'assets/img/keys.jpg',
+  emptyRoom: 'assets/img/checklist.jpg',
+  tape: 'assets/img/tape-measure.jpg',
+  clipboard: 'assets/img/clipboard.jpg',
+  build: 'assets/img/ruler-blueprint.jpg',
+  house: 'assets/img/spirit-level.jpg',
+  site: 'assets/img/drafting-tools.jpg',
   drawing: 'assets/img/plans-drawing.jpg',
   laser: 'assets/img/laser-line.jpg',
   helmet: 'assets/img/red-helmet.jpg'
@@ -547,7 +549,7 @@ pages['index.html'] = {
         </div>
       </a>
       <a href="budowa-domow.html" class="photo-card reveal reveal-d1">
-        <div class="photo-card__img"><img src="${IMG.build}" alt="Budowa domu murowanego" loading="lazy"></div>
+        <div class="photo-card__img"><img src="${IMG.build}" alt="Linijka na projekcie budowlanym" loading="lazy"></div>
         <div class="photo-card__body">
           <span class="photo-card__label">Generalny wykonawca</span>
           <h3>Kompleksowa budowa domów</h3>
@@ -623,7 +625,7 @@ ${tilesBlock()}
 <section class="section">
   <div class="container">
     <div class="split">
-      <div class="split__media reveal"><img src="${IMG.emptyRoom}" alt="Puste mieszkanie w stanie deweloperskim" loading="lazy"></div>
+      <div class="split__media reveal"><img src="${IMG.tape}" alt="Miarka zwijana" loading="lazy"></div>
       <div class="reveal reveal-d1">
         <span class="eyebrow">Doradztwo techniczne</span>
         <h2 class="h-lg">Doradztwo po odbiorze</h2>
@@ -655,7 +657,7 @@ ${pageHero({ crumbs: ['<a href="uslugi.html">Usługi</a>', 'Odbiór mieszkania']
     <div class="reveal">
       <span class="eyebrow">Odbiór techniczny</span>
       <h2 class="h-lg">Odbiór mieszkania w stanie deweloperskim</h2>
-      <img src="${IMG.emptyRoom}" alt="Puste mieszkanie w stanie deweloperskim" loading="lazy" style="margin-top:36px;width:100%;aspect-ratio:16/10;object-fit:cover">
+      <img src="${IMG.emptyRoom}" alt="Lista kontrolna" loading="lazy" style="margin-top:36px;width:100%;aspect-ratio:16/10;object-fit:cover">
     </div>
     <div class="reveal reveal-d1">
       <ul class="checks">
@@ -696,7 +698,7 @@ ${pageHero({ crumbs: ['<a href="uslugi.html">Usługi</a>', 'Odbiór domu'], eyeb
 
 <section class="section">
   <div class="container split split--rev">
-    <div class="split__media reveal"><img src="${IMG.house}" alt="Dom jednorodzinny w budowie" loading="lazy"></div>
+    <div class="split__media reveal"><img src="${IMG.house}" alt="Poziomica" loading="lazy"></div>
     <div class="reveal reveal-d1">
       <span class="eyebrow">Szerszy zakres</span>
       <h2 class="h-lg">Odbiór domu lub segmentu</h2>
@@ -766,7 +768,7 @@ ${pageHero({ crumbs: ['<a href="uslugi.html">Usługi</a>', 'Budowa domów'], eye
 
 <section class="section">
   <div class="container split">
-    <div class="split__media reveal"><img src="${IMG.build}" alt="Budowa domu murowanego" loading="lazy"></div>
+    <div class="split__media reveal"><img src="${IMG.build}" alt="Linijka na projekcie budowlanym" loading="lazy"></div>
     <div class="reveal reveal-d1">
       <span class="eyebrow">Generalny wykonawca</span>
       <h2 class="h-lg">Budowa domu od podstaw</h2>
@@ -875,7 +877,7 @@ pages['kontakt.html'] = {
   desc: `Kontakt z BAUTIS: tel. ${C.phone}, ${C.email}. ${C.street}, ${C.city}. Godziny pracy: ${C.hours}.`,
   active: 'kontakt',
   body: `
-${pageHero({ crumbs: ['Kontakt'], eyebrow: 'Kontakt', title: 'Kontakt', text: `${C.hours} · ${C.phone} · ${C.email}`, ctas: false, img: IMG.flat })}
+${pageHero({ crumbs: ['Kontakt'], eyebrow: 'Kontakt', title: 'Kontakt', text: `${C.hours} · ${C.phone} · ${C.email}`, ctas: false, img: IMG.clipboard })}
 ${contactBlock()}
 <section>
   <iframe class="map" src="${C.mapsEmbed}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa — BAUTIS, Pełczyńskiego 14, Warszawa"></iframe>

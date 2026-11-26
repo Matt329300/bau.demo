@@ -19,7 +19,7 @@ node _build/build.js
 Style: `assets/css/style.css`, skrypty: `assets/js/main.js`.
 
 ## Do uzupełnienia przed publikacją
-- Zdjęcia: 2 zdjęcia linkowane z bautis.pl + 9 zdjęć poglądowych z Unsplash w `assets/img/` (lista niżej). Najlepiej podmienić je na prawdziwe zdjęcia z odbiorów i budów firmy.
+- Zdjęcia: 2 zdjęcia linkowane z bautis.pl + 11 neutralnych zdjęć przedmiotów z Unsplash w `assets/img/` (lista niżej). Najlepiej podmienić je na prawdziwe zdjęcia z odbiorów i budów firmy.
 - Formularz: otwiera program pocztowy (mailto). Na produkcji trzeba go podpiąć pod backend (np. Formspree albo formularz WordPress).
 - Treści: wyłącznie z bautis.pl i wizytówki Google. Niczego nie dopisywać bez potwierdzenia właściciela.
 - Opinie: dosłowne fragmenty 3 opinii z Google (tak jak je skraca Google). Warto potwierdzić z klientem, czy można je publikować.
@@ -31,16 +31,20 @@ Style: `assets/css/style.css`, skrypty: `assets/js/main.js`.
 - W nagłówku i stopce logo jest odwzorowane jako SVG w `_build/build.js` (`logoMark`), żeby było widoczne na czarnym tle. Napis: font Saira Stencil One.
 
 ## Zdjęcia z Unsplash (licencja Unsplash: darmowe, także komercyjnie)
-| Plik | Źródło |
+Tylko neutralne zdjęcia przedmiotów (bez budynków).
+
+| Plik | ID zdjęcia |
 |---|---|
-| apartment-building.jpg | photo-1545324418-cc1a3fa10c00 |
-| empty-room.jpg | photo-1757742690834-aa581b9f53b2 |
-| grey-room.jpg | photo-1789353527927-21e987b43eb2 |
-| house-construction.jpg | photo-1593786267440-550458cc882a |
-| new-house.jpg | photo-1672627170267-fca17bb54156 |
-| site-aerial.jpg | photo-1541888946425-d81bb19240f5 |
+| rulers.jpg | photo-1550985543-49bee3167284 |
+| tape-measure.jpg | photo-1703756291638-b1774ae3c186 |
+| spirit-level.jpg | photo-1567361808976-260065224468 |
+| drafting-tools.jpg | photo-1501516069922-a9982bd6f3bd |
+| ruler-blueprint.jpg | photo-1741201663493-6f032d310a7f |
+| keys.jpg | photo-1643804926339-e94f0a655185 |
+| checklist.jpg | photo-1754548930574-6a995e5eb5a7 |
+| clipboard.jpg | photo-1743385779431-45d26d9775b1 |
 | plans-drawing.jpg | photo-1503387762-592deb58ef4e |
 | laser-line.jpg | photo-1670511146782-8f52c5a7bd08 |
 | red-helmet.jpg | photo-1567954970774-58d6aa6c50dc |
 
-Każde zdjęcie: https://images.unsplash.com/<id>
+Każde zdjęcie: https://images.unsplash.com/<ID>
