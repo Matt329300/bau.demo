@@ -1,0 +1,17 @@
+# Lokalne ustawienia Claude Code / edytorów
+.claude/
+.vscode/
+.idea/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# System
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Sekrety / zmienne środowiskowe
+.env
+.env.*
