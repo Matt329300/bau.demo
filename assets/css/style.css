@@ -376,7 +376,7 @@ button { font: inherit; cursor: pointer; }
 
 /* ---------- CTA pasek ---------- */
 .cta-band { background: var(--ink); color: #fff; position: relative; overflow: hidden; }
-.cta-band::before { content: ""; position: absolute; inset: 0; background: url("../img/laser-line.jpg") center / cover no-repeat; opacity: .22; }
+.cta-band::before { content: ""; position: absolute; inset: -120px 0; transform: translate3d(0, var(--py, 0px), 0); will-change: transform; background: url("../img/laser-line.jpg") center / cover no-repeat; opacity: .22; }
 .cta-band__inner { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 40px; padding-top: clamp(56px, 7vw, 96px); padding-bottom: clamp(56px, 7vw, 96px); flex-wrap: wrap; }
 .cta-band h2 { color: #fff; max-width: 680px; }
 .cta-band p { color: rgba(255,255,255,.7); margin: 16px 0 0; }
@@ -443,7 +443,7 @@ button { font: inherit; cursor: pointer; }
 
 /* ---------- stopka ---------- */
 .footer { background: var(--dark); color: rgba(255,255,255,.7); padding: clamp(64px, 8vw, 110px) 0 0; font-size: 14.5px; position: relative; overflow: hidden; isolation: isolate; }
-.footer::before { content: ""; position: absolute; inset: 0; z-index: -1; background: url("../img/laser-line.jpg") center / cover no-repeat; opacity: .22; }
+.footer::before { content: ""; position: absolute; inset: -120px 0; z-index: -1; transform: translate3d(0, var(--py, 0px), 0); will-change: transform; background: url("../img/laser-line.jpg") center / cover no-repeat; opacity: .22; }
 .footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 48px; padding-bottom: 64px; }
 .footer .logo { margin-bottom: 24px; }
 .footer h4 { color: #fff; font-size: 12px; letter-spacing: .22em; text-transform: uppercase; margin-bottom: 22px; }
@@ -507,5 +507,5 @@ button { font: inherit; cursor: pointer; }
 
 /* sekcja z tłem ze zdjęcia */
 .section--photo { position: relative; overflow: hidden; isolation: isolate; }
-.section__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .22; z-index: -1; }
+.section__bg { position: absolute; left: 0; top: -120px; width: 100%; height: calc(100% + 240px); object-fit: cover; opacity: .22; z-index: -1; transform: translate3d(0, var(--py, 0px), 0); will-change: transform; }
 .section--photo .gear__item { background: rgba(23,23,23,.55); backdrop-filter: blur(2px); }

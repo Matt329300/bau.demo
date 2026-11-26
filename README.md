@@ -37,7 +37,7 @@ Tylko neutralne zdjęcia przedmiotów (bez budynków).
 |---|---|
 | rulers.jpg | photo-1550985543-49bee3167284 |
 | tape-measure.jpg | photo-1703756291638-b1774ae3c186 |
-| spirit-level.jpg | photo-1567361808976-260065224468 |
+| house-keys.jpg | photo-1560518883-ce09059eeffa |
 | drafting-tools.jpg | photo-1501516069922-a9982bd6f3bd |
 | ruler-blueprint.jpg | photo-1741201663493-6f032d310a7f |
 | keys.jpg | photo-1643804926339-e94f0a655185 |

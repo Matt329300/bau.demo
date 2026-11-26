@@ -88,6 +88,29 @@
     });
   });
 
+  // Paralaksa tła (zdjęcie lasera): tło przesuwa się wolniej niż treść
+  const parallax = document.querySelectorAll('.cta-band, .footer, .section--photo');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (parallax.length && !reduce) {
+    const RANGE = 100; // maks. przesunięcie w px (zapas 120px w CSS)
+    let ticking = false;
+    const update = () => {
+      const vh = window.innerHeight;
+      parallax.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.bottom < -200 || r.top > vh + 200) return;
+        const t = (r.top + r.height / 2 - vh / 2) / (vh / 2 + r.height / 2); // -1 … 1
+        const py = -Math.max(-1, Math.min(1, t)) * RANGE; // tło „zostaje w tyle”
+        el.style.setProperty('--py', py.toFixed(1) + 'px');
+      });
+      ticking = false;
+    };
+    const onScrollP = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+    window.addEventListener('scroll', onScrollP, { passive: true });
+    window.addEventListener('resize', onScrollP);
+    update();
+  }
+
   // Rok w stopce
   document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
 })();

@@ -39,7 +39,7 @@ const IMG = {
   tape: 'assets/img/tape-measure.jpg',
   clipboard: 'assets/img/clipboard.jpg',
   build: 'assets/img/ruler-blueprint.jpg',
-  house: 'assets/img/spirit-level.jpg',
+  house: 'assets/img/house-keys.jpg',
   site: 'assets/img/drafting-tools.jpg',
   drawing: 'assets/img/plans-drawing.jpg',
   laser: 'assets/img/laser-line.jpg',
@@ -698,7 +698,7 @@ ${pageHero({ crumbs: ['<a href="uslugi.html">Usługi</a>', 'Odbiór domu'], eyeb
 
 <section class="section">
   <div class="container split split--rev">
-    <div class="split__media reveal"><img src="${IMG.house}" alt="Poziomica" loading="lazy"></div>
+    <div class="split__media reveal"><img src="${IMG.house}" alt="Model domu z kluczami" loading="lazy"></div>
     <div class="reveal reveal-d1">
       <span class="eyebrow">Szerszy zakres</span>
       <h2 class="h-lg">Odbiór domu lub segmentu</h2>
