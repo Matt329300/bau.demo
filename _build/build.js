@@ -20,7 +20,7 @@ const C = {
   nip: '879-262-81-31',
   fb: 'https://www.facebook.com/BAUTIS.Budownictwo',
   maps: 'https://www.google.com/maps/place/Bautis+Bartosz+Krygier/@52.2424706,20.9087483,17z/data=!4m6!3m5!1s0x471ecb4dfaeca03b:0x73bf1cdc335eae63!8m2!3d52.2424706!4d20.9087483!16s%2Fg%2F11h_k3vt44',
-  mapsEmbed: 'https://maps.google.com/maps?q=52.2424706,20.9087483&z=16&hl=pl&output=embed',
+  mapsEmbed: 'https://maps.google.com/maps?q=Bautis+Bartosz+Krygier,+Pe%C5%82czy%C5%84skiego+14,+01-471+Warszawa&z=16&hl=pl&output=embed',
   rating: '4.9',
   reviews: 38,
   hours: 'Pn–Pt 8:00–16:00',
@@ -858,7 +858,7 @@ pages['kontakt.html'] = {
 ${pageHero({ crumbs: ['Kontakt'], eyebrow: 'Kontakt', title: 'Kontakt', text: `${C.hours} · ${C.phone} · ${C.email}`, ctas: false, img: IMG.clipboard })}
 ${contactBlock()}
 <section>
-  <iframe class="map" src="${C.mapsEmbed}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa — BAUTIS, Pełczyńskiego 14, Warszawa"></iframe>
+  <iframe class="map" src="${C.mapsEmbed}" referrerpolicy="no-referrer-when-downgrade" title="Mapa — BAUTIS, Pełczyńskiego 14, Warszawa"></iframe>
 </section>
 <section class="section section--soft section--tight">
   <div class="container">

@@ -393,11 +393,6 @@ button { font: inherit; cursor: pointer; }
 .contact-list a:hover { color: var(--accent); }
 .section--dark .contact-list { border-color: rgba(255,255,255,.14); }
 
-  font: inherit; font-size: 15px; color: var(--ink);
-  padding: 15px 16px 13px; border: 1px solid var(--line); background: #fff; border-radius: 0;
-  transition: border-color .2s;
-}
-
 .map { width: 100%; height: 440px; border: 0; filter: grayscale(1) contrast(1.05); display: block; }
 
 /* ---------- lista usług (podstrona) ---------- */
