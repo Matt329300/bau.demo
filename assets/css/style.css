@@ -393,27 +393,10 @@ button { font: inherit; cursor: pointer; }
 .contact-list a:hover { color: var(--accent); }
 .section--dark .contact-list { border-color: rgba(255,255,255,.14); }
 
-.form { background: var(--bg-soft); padding: clamp(32px, 4vw, 56px); }
-.section--soft .form { background: #fff; }
-.form h3 { font-size: 26px; margin-bottom: 8px; }
-.form > p { margin-bottom: 30px; }
-.form__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-.field { display: flex; flex-direction: column; gap: 8px; }
-.field--full { grid-column: 1 / -1; }
-.field label { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); }
-.field input, .field select, .field textarea {
   font: inherit; font-size: 15px; color: var(--ink);
   padding: 15px 16px 13px; border: 1px solid var(--line); background: #fff; border-radius: 0;
   transition: border-color .2s;
 }
-.field textarea { min-height: 130px; resize: vertical; }
-.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--ink); }
-.consent { display: flex; gap: 12px; align-items: flex-start; font-size: 13px; color: var(--muted); line-height: 1.5; }
-.consent input { margin-top: 3px; accent-color: var(--ink); width: 16px; height: 16px; flex: none; }
-.form__foot { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-top: 8px; flex-wrap: wrap; }
-.form__note { font-size: 13px; color: var(--muted); margin: 0; }
-.form__msg { display: none; margin-top: 18px; padding: 14px 18px; background: #fff; border-left: 3px solid var(--accent); font-size: 14.5px; }
-.form__msg.is-visible { display: block; }
 
 .map { width: 100%; height: 440px; border: 0; filter: grayscale(1) contrast(1.05); display: block; }
 
@@ -494,7 +477,6 @@ button { font: inherit; cursor: pointer; }
   .stats { grid-template-columns: 1fr 1fr; gap: 28px; }
   .tile { min-height: 360px; }
   .about__badge { right: 0; bottom: 0; }
-  .form__grid { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr; }
   .fab { display: grid; }
   .service-row { grid-template-columns: 1fr auto; gap: 16px; padding: 32px 0; }

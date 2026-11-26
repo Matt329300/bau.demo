@@ -64,30 +64,6 @@
     counters.forEach(c => co.observe(c));
   }
 
-  // Formularz — otwiera wiadomość e-mail z wypełnioną treścią
-  // (do podpięcia pod backend / Formspree / WordPress przy wdrożeniu)
-  document.querySelectorAll('form[data-mailto]').forEach(form => {
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      if (!form.reportValidity()) return;
-      const d = new FormData(form);
-      const subject = `Zapytanie ze strony: ${d.get('usluga') || 'kontakt'}`;
-      const body = [
-        `Imię i nazwisko: ${d.get('imie') || ''}`,
-        `Telefon: ${d.get('telefon') || ''}`,
-        `E-mail: ${d.get('email') || ''}`,
-        `Usługa: ${d.get('usluga') || ''}`,
-        `Lokalizacja / metraż: ${d.get('lokalizacja') || ''}`,
-        `Preferowany termin: ${d.get('termin') || ''}`,
-        '',
-        `${d.get('wiadomosc') || ''}`
-      ].join('\n');
-      window.location.href = `mailto:${form.dataset.mailto}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      const msg = form.querySelector('.form__msg');
-      if (msg) msg.classList.add('is-visible');
-    });
-  });
-
   // Rok w stopce
   document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
 })();

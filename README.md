@@ -20,7 +20,6 @@ Style: `assets/css/style.css`, skrypty: `assets/js/main.js`.
 
 ## Do uzupełnienia przed publikacją
 - Zdjęcia: 2 zdjęcia linkowane z bautis.pl + 11 neutralnych zdjęć przedmiotów z Unsplash w `assets/img/` (lista niżej). Najlepiej podmienić je na prawdziwe zdjęcia z odbiorów i budów firmy.
-- Formularz: otwiera program pocztowy (mailto). Na produkcji trzeba go podpiąć pod backend (np. Formspree albo formularz WordPress).
 - Treści: wyłącznie z bautis.pl i wizytówki Google. Niczego nie dopisywać bez potwierdzenia właściciela.
 - Opinie: dosłowne fragmenty 3 opinii z Google (tak jak je skraca Google). Warto potwierdzić z klientem, czy można je publikować.
 - Cennik: bautis.pl odsyła do zakładki „OFERTA”, której nie ma w menu. Ceny dodać dopiero po otrzymaniu od właściciela.

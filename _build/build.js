@@ -146,7 +146,7 @@ const header = (active) => {
       </ul>
     </nav>
     <a href="${C.phoneHref}" class="header__phone">${I.phone}${C.phone.replace('+48 ', '')}</a>
-    <a href="kontakt.html#formularz" class="btn btn--accent">Umów odbiór</a>
+    <a href="kontakt.html" class="btn btn--accent">Umów odbiór</a>
     <button class="burger" aria-label="Otwórz menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -269,7 +269,7 @@ const pageHero = ({ crumbs, eyebrow, title, text, img, ctas = true }) => `
       <h1 class="h-xl">${title}</h1>
       ${text ? `<p>${text}</p>` : ''}
       ${ctas ? `<div class="hero__ctas">
-        <a href="kontakt.html#formularz" class="btn btn--light">Umów termin ${I.arrow}</a>
+        <a href="kontakt.html" class="btn btn--light">Umów termin ${I.arrow}</a>
         <a href="${C.phoneHref}" class="btn btn--ghost-light">${I.phone} ${C.phone}</a>
       </div>` : ''}
     </div>
@@ -421,36 +421,10 @@ const ctaBand = () => `
     </div>
     <div class="cta-band__actions reveal reveal-d1">
       <a href="${C.phoneHref}" class="btn btn--light">${I.phone} ${C.phone}</a>
-      <a href="kontakt.html#formularz" class="btn btn--ghost-light">Napisz do nas ${I.arrow}</a>
+      <a href="mailto:${C.email}" class="btn btn--ghost-light">${I.mail} Napisz do nas</a>
     </div>
   </div>
 </section>`;
-
-const form = (preset = '') => `
-<form class="form reveal" data-mailto="${C.email}" id="formularz">
-  <h3>Napisz do nas</h3>
-  <p class="muted">Pola oznaczone * są wymagane.</p>
-  <div class="form__grid">
-    <div class="field"><label for="f-imie">Imię i nazwisko *</label><input id="f-imie" name="imie" required autocomplete="name"></div>
-    <div class="field"><label for="f-tel">Telefon *</label><input id="f-tel" name="telefon" type="tel" required autocomplete="tel"></div>
-    <div class="field"><label for="f-mail">E-mail</label><input id="f-mail" name="email" type="email" autocomplete="email"></div>
-    <div class="field"><label for="f-usl">Usługa *</label>
-      <select id="f-usl" name="usluga" required>
-        <option value="">Wybierz…</option>
-        ${['Odbiór mieszkania', 'Odbiór domu / segmentu', 'Odbiór lokalu usługowego', 'Inspektor nadzoru', 'Budowa domu', 'Doradztwo techniczne', 'Inne'].map(o => `<option${o === preset ? ' selected' : ''}>${o}</option>`).join('')}
-      </select>
-    </div>
-    <div class="field"><label for="f-lok">Adres inwestycji</label><input id="f-lok" name="lokalizacja"></div>
-    <div class="field"><label for="f-term">Termin odbioru</label><input id="f-term" name="termin" type="date"></div>
-    <div class="field field--full"><label for="f-msg">Wiadomość</label><textarea id="f-msg" name="wiadomosc"></textarea></div>
-    <label class="consent field--full"><input type="checkbox" required> <span>Wyrażam zgodę na przetwarzanie moich danych osobowych w celu udzielenia odpowiedzi na zapytanie. *</span></label>
-  </div>
-  <div class="form__foot" style="margin-top:24px">
-    <p class="form__note">lub zadzwoń: <a href="${C.phoneHref}"><strong>${C.phone}</strong></a></p>
-    <button type="submit" class="btn">Wyślij zapytanie ${I.arrow}</button>
-  </div>
-  <div class="form__msg" role="status">Otwieramy Twój program pocztowy z gotową wiadomością. Jeśli nic się nie stało — napisz na <a href="mailto:${C.email}"><strong>${C.email}</strong></a>.</div>
-</form>`;
 
 const contactList = () => `
 <ul class="contact-list">
@@ -466,9 +440,13 @@ const contactBlock = (preset = '', soft = false) => `
     <div class="contact__info reveal">
       <span class="eyebrow">Kontakt</span>
       <h2 class="h-lg">Kontakt</h2>
-      ${contactList()}
+      <p>${C.hours}</p>
+      <div class="hero__ctas" style="margin-top:32px">
+        <a href="${C.phoneHref}" class="btn">${I.phone} Zadzwoń</a>
+        <a href="mailto:${C.email}" class="btn btn--ghost">${I.mail} Napisz e-mail</a>
+      </div>
     </div>
-    ${form(preset)}
+    <div class="reveal reveal-d1">${contactList()}</div>
   </div>
 </section>`;
 
@@ -523,7 +501,7 @@ pages['index.html'] = {
       <h1 class="h-xl">Odbiory mieszkań i domów. Inspektor nadzoru.</h1>
       <div class="hero__tagline">Odbiór<span>|</span>Nadzór<span>|</span>Budowa</div>
       <div class="hero__ctas">
-        <a href="kontakt.html#formularz" class="btn btn--light">Umów odbiór ${I.arrow}</a>
+        <a href="kontakt.html" class="btn btn--light">Umów odbiór ${I.arrow}</a>
         <a href="uslugi.html" class="btn btn--ghost-light">Zobacz usługi</a>
       </div>
     </div>
@@ -634,7 +612,7 @@ ${tilesBlock()}
           <li>${I.check}Porady dotyczące usterek</li>
           <li>${I.check}Wskazówki, jak samodzielnie sprawdzić usunięcie usterek</li>
         </ul>
-        <a href="kontakt.html#formularz" class="btn">Kontakt ${I.arrow}</a>
+        <a href="kontakt.html" class="btn">Kontakt ${I.arrow}</a>
       </div>
     </div>
   </div>
@@ -703,7 +681,7 @@ ${pageHero({ crumbs: ['<a href="uslugi.html">Usługi</a>', 'Odbiór domu'], eyeb
       <span class="eyebrow">Szerszy zakres</span>
       <h2 class="h-lg">Odbiór domu lub segmentu</h2>
       <p>Zakres obejmuje elementy sprawdzane w mieszkaniu oraz dodatkowo: poddasze (zabudowy, ocieplenie, okna dachowe), dach, obróbki, kominy, wentylację grawitacyjną, zagospodarowanie terenu i elewację.</p>
-      <a href="kontakt.html#formularz" class="btn">Umów odbiór domu ${I.arrow}</a>
+      <a href="kontakt.html" class="btn">Umów odbiór domu ${I.arrow}</a>
     </div>
   </div>
 </section>
@@ -747,7 +725,7 @@ ${pageHero({ crumbs: ['<a href="uslugi.html">Usługi</a>', 'Inspektor nadzoru'],
         <li>${I.check}Pełne uprawnienia budowlane bez ograniczeń</li>
         <li>${I.check}Profesjonalny sprzęt pomiarowy</li>
       </ul>
-      <a href="kontakt.html#formularz" class="btn">Zapytaj o nadzór ${I.arrow}</a>
+      <a href="kontakt.html" class="btn">Zapytaj o nadzór ${I.arrow}</a>
     </div>
   </div>
 </section>
@@ -777,7 +755,7 @@ ${pageHero({ crumbs: ['<a href="uslugi.html">Usługi</a>', 'Budowa domów'], eye
         <li>${I.check}Prowadzenie budowy od podstaw</li>
         <li>${I.check}Pełne uprawnienia budowlane bez ograniczeń</li>
       </ul>
-      <a href="kontakt.html#formularz" class="btn">Zapytaj o budowę ${I.arrow}</a>
+      <a href="kontakt.html" class="btn">Zapytaj o budowę ${I.arrow}</a>
     </div>
   </div>
 </section>
