@@ -31,7 +31,17 @@ const IMG = {
   plans: 'https://bautis.pl/wp-content/uploads/2024/03/building-plans-in-hand-2048x1365.jpg',
   plansM: 'https://bautis.pl/wp-content/uploads/2024/03/building-plans-in-hand-1536x1024.jpg',
   details: 'https://bautis.pl/wp-content/uploads/2024/03/pointing-out-the-details-2048x1365.jpg',
-  detailsM: 'https://bautis.pl/wp-content/uploads/2024/03/pointing-out-the-details-1536x1024.jpg'
+  detailsM: 'https://bautis.pl/wp-content/uploads/2024/03/pointing-out-the-details-1536x1024.jpg',
+  // Zdjęcia poglądowe z Unsplash (licencja Unsplash, darmowe) — źródła w README
+  flat: 'assets/img/apartment-building.jpg',
+  room: 'assets/img/grey-room.jpg',
+  emptyRoom: 'assets/img/empty-room.jpg',
+  build: 'assets/img/house-construction.jpg',
+  house: 'assets/img/new-house.jpg',
+  site: 'assets/img/site-aerial.jpg',
+  drawing: 'assets/img/plans-drawing.jpg',
+  laser: 'assets/img/laser-line.jpg',
+  helmet: 'assets/img/red-helmet.jpg'
 };
 
 /* ------------------------------------------------------------------ */
@@ -85,8 +95,19 @@ const I = {
   key: s('<circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3M14 9l2 2"/>')
 };
 
-/* Logo — znak: rzut/węgielnica */
-const logoMark = s('<path d="M4 20V4h16"/><path d="M4 12h8v8"/><path d="M16 8v12h4"/>');
+/* Logo BAUTIS — kask (czerwony) + dom (kolor tekstu), odwzorowane z assets/img/logo-bautis.png.
+   Czarne elementy używają currentColor, więc na ciemnym tle są białe. */
+const logoMark = `<svg class="logo__svg" viewBox="120 225 780 305" aria-hidden="true">
+  <g fill="#e30613">
+    <path d="M128 510 L292 482 C318 425 348 382 383 345 L393 302 C440 262 498 236 558 230 L558 292 C448 300 352 385 340 505 L558 505 L558 525 L165 525 Z"/>
+    <path d="M366 497 C382 398 462 322 558 313 L558 497 Z"/>
+  </g>
+  <g fill="currentColor">
+    <path d="M580 232 L893 355 L893 373 L580 297 Z"/>
+    <path fill-rule="evenodd" d="M580 313 L843 380 L843 497 L668 497 L668 392 L612 392 L612 497 L580 497 Z M705 392 L765 392 L765 437 L705 437 Z"/>
+    <rect x="580" y="507" width="313" height="18"/>
+  </g>
+</svg>`;
 const logo = (extra = '') => `<a href="index.html" class="logo ${extra}" aria-label="BAUTIS — strona główna">
   <span class="logo__mark">${logoMark}</span>
   <span class="logo__text"><span class="logo__name">BAUTIS</span><span class="logo__sub">Odbiory · Nadzór · Budowa</span></span>
@@ -198,10 +219,10 @@ const layout = ({ title, desc, active, body, file }) => `<!DOCTYPE html>
 <meta property="og:type" content="website">
 <meta property="og:image" content="${IMG.plansM}">
 <meta name="theme-color" content="#000000">
-<link rel="icon" href="data:image/svg+xml,${encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' fill='#000'/><g fill='none' stroke='#fff' stroke-width='1.8'><path d='M5 19V5h14M5 12h7v7M15 9v10h4'/></g></svg>`)}">
+<link rel="icon" type="image/png" href="assets/img/logo-bautis.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@200;300;400;500;600;700&family=Saira+Stencil+One&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 <script type="application/ld+json">${JSON.stringify({
   '@context': 'https://schema.org',
@@ -313,7 +334,8 @@ const tilesBlock = () => `
 </div>`;
 
 const gearBlock = () => `
-<section class="section section--dark">
+<section class="section section--dark section--photo">
+  <img class="section__bg" src="${IMG.laser}" alt="" loading="lazy">
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow">Sprzęt pomiarowy</span>
@@ -525,7 +547,7 @@ pages['index.html'] = {
         </div>
       </a>
       <a href="budowa-domow.html" class="photo-card reveal reveal-d1">
-        <div class="photo-card__img"><div class="blueprint">${houseDrawing()}</div></div>
+        <div class="photo-card__img"><img src="${IMG.build}" alt="Budowa domu murowanego" loading="lazy"></div>
         <div class="photo-card__body">
           <span class="photo-card__label">Generalny wykonawca</span>
           <h3>Kompleksowa budowa domów</h3>
@@ -541,7 +563,7 @@ pages['index.html'] = {
   <div class="container">
     <div class="about">
       <div class="about__img reveal">
-        <img src="${IMG.plansM}" alt="Projekt budowlany" loading="lazy">
+        <img src="${IMG.helmet}" alt="Czerwony kask budowlany" loading="lazy">
         <div class="about__badge"><strong>${C.owner}</strong><span>BAUTIS</span></div>
       </div>
       <div class="reveal reveal-d1">
@@ -601,7 +623,7 @@ ${tilesBlock()}
 <section class="section">
   <div class="container">
     <div class="split">
-      <div class="split__media reveal"><img src="${IMG.detailsM}" alt="Wskazywanie szczegółów podczas odbioru" loading="lazy"></div>
+      <div class="split__media reveal"><img src="${IMG.emptyRoom}" alt="Puste mieszkanie w stanie deweloperskim" loading="lazy"></div>
       <div class="reveal reveal-d1">
         <span class="eyebrow">Doradztwo techniczne</span>
         <h2 class="h-lg">Doradztwo po odbiorze</h2>
@@ -626,13 +648,14 @@ pages['odbior-mieszkania.html'] = {
   desc: 'Odbiór techniczny mieszkania w stanie deweloperskim: ściany, sufity, posadzki, okna, wentylacja, instalacje, balkon, garaż. Pomiary laserem krzyżowym, pirometrem i aerometrem.',
   active: 'uslugi',
   body: `
-${pageHero({ crumbs: ['<a href="uslugi.html">Usługi</a>', 'Odbiór mieszkania'], eyebrow: 'Usługa 01 · Odbiory techniczne', title: 'Odbiór mieszkania', text: 'Odbiory techniczne mieszkań w stanie deweloperskim, segmentów i lokali usługowych.', img: IMG.details })}
+${pageHero({ crumbs: ['<a href="uslugi.html">Usługi</a>', 'Odbiór mieszkania'], eyebrow: 'Usługa 01 · Odbiory techniczne', title: 'Odbiór mieszkania', text: 'Odbiory techniczne mieszkań w stanie deweloperskim, segmentów i lokali usługowych.', img: IMG.flat })}
 
 <section class="section">
   <div class="container split">
     <div class="reveal">
       <span class="eyebrow">Odbiór techniczny</span>
       <h2 class="h-lg">Odbiór mieszkania w stanie deweloperskim</h2>
+      <img src="${IMG.emptyRoom}" alt="Puste mieszkanie w stanie deweloperskim" loading="lazy" style="margin-top:36px;width:100%;aspect-ratio:16/10;object-fit:cover">
     </div>
     <div class="reveal reveal-d1">
       <ul class="checks">
@@ -669,11 +692,11 @@ pages['odbior-domu.html'] = {
   desc: 'Odbiór techniczny domu i segmentu: poddasze, okna dachowe, dach, obróbki, kominy, wentylacja grawitacyjna, elewacja i zagospodarowanie terenu.',
   active: 'uslugi',
   body: `
-${pageHero({ crumbs: ['<a href="uslugi.html">Usługi</a>', 'Odbiór domu'], eyebrow: 'Usługa 02 · Odbiory techniczne', title: 'Odbiór domu i segmentu', text: 'W przypadku domu lub segmentu zakres odbioru jest szerszy niż przy mieszkaniu.', img: IMG.plans })}
+${pageHero({ crumbs: ['<a href="uslugi.html">Usługi</a>', 'Odbiór domu'], eyebrow: 'Usługa 02 · Odbiory techniczne', title: 'Odbiór domu i segmentu', text: 'W przypadku domu lub segmentu zakres odbioru jest szerszy niż przy mieszkaniu.', img: IMG.house })}
 
 <section class="section">
   <div class="container split split--rev">
-    <div class="split__media reveal"><div class="blueprint">${houseDrawing()}</div></div>
+    <div class="split__media reveal"><img src="${IMG.house}" alt="Dom jednorodzinny w budowie" loading="lazy"></div>
     <div class="reveal reveal-d1">
       <span class="eyebrow">Szerszy zakres</span>
       <h2 class="h-lg">Odbiór domu lub segmentu</h2>
@@ -706,13 +729,14 @@ pages['inspektor-nadzoru.html'] = {
   desc: 'Inspektor nadzoru inwestorskiego z pełnymi uprawnieniami budowlanymi bez ograniczeń. Nadzór nad budową z ramienia inwestora.',
   active: 'uslugi',
   body: `
-${pageHero({ crumbs: ['<a href="uslugi.html">Usługi</a>', 'Inspektor nadzoru'], eyebrow: 'Usługa 03 · Nadzór inwestorski', title: 'Inspektor nadzoru inwestorskiego', text: 'Nadzór nad budową z ramienia inwestora. Pełne uprawnienia budowlane bez ograniczeń.', img: IMG.plans })}
+${pageHero({ crumbs: ['<a href="uslugi.html">Usługi</a>', 'Inspektor nadzoru'], eyebrow: 'Usługa 03 · Nadzór inwestorski', title: 'Inspektor nadzoru inwestorskiego', text: 'Nadzór nad budową z ramienia inwestora. Pełne uprawnienia budowlane bez ograniczeń.', img: IMG.site })}
 
 <section class="section">
   <div class="container split">
     <div class="reveal">
       <span class="eyebrow">Nadzór inwestorski</span>
       <h2 class="h-lg">Inspektor Nadzoru Inwestorskiego</h2>
+      <img src="${IMG.drawing}" alt="Praca nad projektem budowlanym" loading="lazy" style="margin-top:36px;width:100%;aspect-ratio:16/10;object-fit:cover">
     </div>
     <div class="reveal reveal-d1">
       <p class="lead">Świadczymy usługi inżynieryjne w zakresie budownictwa, w szczególności pełnimy funkcję Inspektora Nadzoru Inwestorskiego.</p>
@@ -738,11 +762,11 @@ pages['budowa-domow.html'] = {
   desc: 'Kompleksowa budowa domów — generalny wykonawca. Prowadzenie budowy od podstaw. Pełne uprawnienia budowlane bez ograniczeń.',
   active: 'uslugi',
   body: `
-${pageHero({ crumbs: ['<a href="uslugi.html">Usługi</a>', 'Budowa domów'], eyebrow: 'Usługa 04 · Generalny wykonawca', title: 'Kompleksowa budowa domów', text: 'Generalny wykonawca — prowadzenie budowy od podstaw.' })}
+${pageHero({ crumbs: ['<a href="uslugi.html">Usługi</a>', 'Budowa domów'], eyebrow: 'Usługa 04 · Generalny wykonawca', title: 'Kompleksowa budowa domów', text: 'Generalny wykonawca — prowadzenie budowy od podstaw.', img: IMG.build })}
 
 <section class="section">
   <div class="container split">
-    <div class="split__media reveal"><div class="blueprint">${houseDrawing()}</div></div>
+    <div class="split__media reveal"><img src="${IMG.build}" alt="Budowa domu murowanego" loading="lazy"></div>
     <div class="reveal reveal-d1">
       <span class="eyebrow">Generalny wykonawca</span>
       <h2 class="h-lg">Budowa domu od podstaw</h2>
@@ -768,7 +792,7 @@ pages['o-nas.html'] = {
   desc: 'BAUTIS Bartosz Krygier — odbiory mieszkań i domów, inspektor nadzoru inwestorskiego, budowa domów. Pełne uprawnienia budowlane bez ograniczeń.',
   active: 'o-nas',
   body: `
-${pageHero({ crumbs: ['O nas'], eyebrow: 'O nas', title: 'BAUTIS Bartosz Krygier', text: 'Odbiory mieszkań i domów, inspektor nadzoru, budowa domów.', img: IMG.plans, ctas: false })}
+${pageHero({ crumbs: ['O nas'], eyebrow: 'O nas', title: 'BAUTIS Bartosz Krygier', text: 'Odbiory mieszkań i domów, inspektor nadzoru, budowa domów.', img: IMG.helmet, ctas: false })}
 
 <section class="section">
   <div class="container person">
@@ -803,7 +827,7 @@ pages['opinie.html'] = {
   desc: 'Opinie o BAUTIS Bartosz Krygier w Google: średnia ocena 4,9/5 na podstawie 38 opinii.',
   active: 'opinie',
   body: `
-${pageHero({ crumbs: ['Opinie'], eyebrow: 'Opinie', title: 'Opinie w Google', text: `Średnia ocena 4,9 na 5 na podstawie ${C.reviews} opinii w Google.`, ctas: false })}
+${pageHero({ crumbs: ['Opinie'], eyebrow: 'Opinie', title: 'Opinie w Google', text: `Średnia ocena 4,9 na 5 na podstawie ${C.reviews} opinii w Google.`, ctas: false, img: IMG.room })}
 
 <section class="section">
   <div class="container">
@@ -830,7 +854,7 @@ pages['faq.html'] = {
   desc: 'Pytania i odpowiedzi: zakres odbioru mieszkania i domu, lokale usługowe, doradztwo po odbiorze, uprawnienia.',
   active: 'faq',
   body: `
-${pageHero({ crumbs: ['FAQ'], eyebrow: 'Pytania i odpowiedzi', title: 'Pytania i odpowiedzi', ctas: false })}
+${pageHero({ crumbs: ['FAQ'], eyebrow: 'Pytania i odpowiedzi', title: 'Pytania i odpowiedzi', ctas: false, img: IMG.drawing })}
 <section class="section">
   <div class="container">
     <div class="faq-group reveal">
@@ -851,7 +875,7 @@ pages['kontakt.html'] = {
   desc: `Kontakt z BAUTIS: tel. ${C.phone}, ${C.email}. ${C.street}, ${C.city}. Godziny pracy: ${C.hours}.`,
   active: 'kontakt',
   body: `
-${pageHero({ crumbs: ['Kontakt'], eyebrow: 'Kontakt', title: 'Kontakt', text: `${C.hours} · ${C.phone} · ${C.email}`, ctas: false })}
+${pageHero({ crumbs: ['Kontakt'], eyebrow: 'Kontakt', title: 'Kontakt', text: `${C.hours} · ${C.phone} · ${C.email}`, ctas: false, img: IMG.flat })}
 ${contactBlock()}
 <section>
   <iframe class="map" src="${C.mapsEmbed}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa — BAUTIS, Pełczyńskiego 14, Warszawa"></iframe>
